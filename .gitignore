@@ -1,0 +1,43 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+GTA5-VehicleModKitLimit-Fix/.vs/GTA5-VehicleModKitLimit-Fix/v17/Preview/ipch/c8557467c8956580.ipch
+GTA5-VehicleModKitLimit-Fix/.vs/GTA5-VehicleModKitLimit-Fix/v17/Preview/Browse.VC.opendb
+GTA5-VehicleModKitLimit-Fix/.vs/GTA5-VehicleModKitLimit-Fix/v17/Preview/Browse.VC.db-wal
+GTA5-VehicleModKitLimit-Fix/.vs/GTA5-VehicleModKitLimit-Fix/v17/Preview/Browse.VC.db-shm
+GTA5-VehicleModKitLimit-Fix/.vs/GTA5-VehicleModKitLimit-Fix/v17/Preview/Browse.VC.db
+GTA5-VehicleModKitLimit-Fix/.vs/GTA5-VehicleModKitLimit-Fix/FileContentIndex/read.lock
+GTA5-VehicleModKitLimit-Fix/.vs/GTA5-VehicleModKitLimit-Fix/FileContentIndex/c8bc363b-5d7b-4bba-820e-9dd38530860a.vsidx
+GTA5-VehicleModKitLimit-Fix/.vs/GTA5-VehicleModKitLimit-Fix/FileContentIndex/9df64e8a-c3b9-4946-9335-c75aac6d8c6a.vsidx
+/GTA5-VehicleModKitLimit-Fix/.vs/GTA5-VehicleModKitLimit-Fix
+/GTA5-VehicleModKitLimit-Fix/x64/Release
+*.asi

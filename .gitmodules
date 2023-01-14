@@ -1,0 +1,3 @@
+[submodule "GTA5-VehicleModKitLimit-Fix/dependency/Hooking.Patterns"]
+	path = GTA5-VehicleModKitLimit-Fix/dependency/Hooking.Patterns
+	url = https://github.com/ThirteenAG/Hooking.Patterns.git
