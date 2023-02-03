@@ -7,6 +7,12 @@ struct PatternPair
 };
 
 static uint16_t* _vehicleModKitArray;
+int NUM_MODKIT_INDICES;
+void TomlShit()
+{
+	NUM_MODKIT_INDICES = GetPrivateProfileIntW(L"ModKitLimitPatch", L"ModkitIDs", -1, L".\\ModKitLimitExtender.toml");
+	NUM_MODKIT_INDICES = NUM_MODKIT_INDICES <= 0 ? 0x400 : NUM_MODKIT_INDICES;
+}
 
 void RelocateRelative(std::initializer_list<PatternPair> list)
 {
@@ -21,8 +27,8 @@ void RelocateRelative(std::initializer_list<PatternPair> list)
 			oldAddress = hook::get_address<void*>(location);
 		}
 
-		auto curTarget = hook::get_address<void*>(location);
-		assert(curTarget == oldAddress);
+		auto target = hook::get_address<void*>(location);
+		assert(target == oldAddress);
 
 		hook::put<int32_t>(location, (intptr_t)_vehicleModKitArray - (intptr_t)location - 4);
 	}
@@ -41,14 +47,12 @@ void RelocateAbsolute(std::initializer_list<PatternPair> list)
 			oldAddress = *location;
 		}
 
-		auto curTarget = *location;
-		assert(curTarget == oldAddress);
+		auto target = *location;
+		assert(target == oldAddress);
 
 		hook::put<int32_t>(location, (intptr_t)_vehicleModKitArray - uintptr_t(GetModuleHandleW(nullptr)));
 	}
 }
-
-constexpr int NUM_MODKIT_INDICES = 65536;
 
 // https://github.com/citizenfx/fivem/blob/master/code/components/gta-streaming-five/src/ModKitIdRelocation.cpp
 void initialize()
@@ -80,6 +84,7 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved)
 	switch (fdwReason)
 	{
 	case DLL_PROCESS_ATTACH:
+		TomlShit();
 		initialize();
 		break;
 	}

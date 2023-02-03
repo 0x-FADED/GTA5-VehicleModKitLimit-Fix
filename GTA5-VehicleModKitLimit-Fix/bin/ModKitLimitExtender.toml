@@ -1,0 +1,3 @@
+[ModKitLimitPatch]
+# default is 1024
+ModkitIDs = 65536

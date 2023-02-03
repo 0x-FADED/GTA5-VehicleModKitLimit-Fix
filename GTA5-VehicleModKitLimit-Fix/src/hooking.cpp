@@ -44,7 +44,7 @@ namespace hook
 
 	void* AllocateStubMemory(size_t size)
 	{
-		void* origin = GetModuleHandle(NULL);
+		void* origin = GetModuleHandle(nullptr);
 
 		ULONG_PTR minAddr;
 		ULONG_PTR maxAddr;
@@ -77,17 +77,13 @@ namespace hook
 		param.Pointer = &addressReqs;
 
 		auto hModule = GetModuleHandleW(L"kernelbase.dll");
-		if (hModule == nullptr)
-		{
-			hModule = LoadLibraryW(L"kernelbase.dll");
-		}
 
 		//using VirtualAlloc2 throws linker error gotta either use this workaround or use #pragma comment(lib, "mincore") to get it to work
 		auto pVirtualAlloc2 = (decltype(&::VirtualAlloc2))GetProcAddress(hModule, "VirtualAlloc2");
 
 		void* stub = nullptr;
 
-		stub = pVirtualAlloc2(GetCurrentProcess(), NULL, size, MEM_RESERVE | MEM_COMMIT, PAGE_EXECUTE_READWRITE, &param, 1);
+		stub = pVirtualAlloc2(GetCurrentProcess(), nullptr, size, MEM_RESERVE | MEM_COMMIT, PAGE_EXECUTE_READWRITE, &param, 1);
 
 		return stub;
 	}
